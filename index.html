@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Bosque Esmeralda - Finca San Carlos | Córdoba, Quindío</title>
+    <meta name="description" content="Café especial de Colombia cultivado en la Finca San Carlos, Córdoba, Quindío. Café Bosque Esmeralda - variedades Honey y Lavado.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Georgia', serif; line-height: 1.6; color: #2c3e2c; background-color: #fdfbf7; }
+        header { background: linear-gradient(135deg, #1a4d2e 0%, #2d5f3d 100%); color: white; padding: 0.5rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo-container { display: flex; align-items: center; }
+        .logo-container img { height: 60px; width: auto; object-fit: contain; }
+        nav ul { list-style: none; display: flex; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; transition: color 0.3s; font-size: 1rem; }
+        nav a:hover { color: #8fbc8f; }
+        .hero { background: linear-gradient(rgba(26, 77, 46, 0.4), rgba(26, 77, 46, 0.4)), url('imagenes/atardecer.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; }
+        .hero-content h1 { font-size: 4rem; margin-bottom: 1rem; font-family: 'Palatino', serif; text-shadow: 3px 3px 6px rgba(0,0,0,0.7); }
+        .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; font-style: italic; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+        .cta-button { background-color: #8fbc8f; color: #1a4d2e; padding: 1rem 2.5rem; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .cta-button:hover { background-color: #7aa87a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+        section { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        h2 { font-size: 2.5rem; color: #1a4d2e; margin-bottom: 2rem; text-align: center; font-family: 'Palatino', serif; }
+        .subtitle { text-align: center; font-size: 1.2rem; color: #5a7a5a; margin-bottom: 3rem; font-style: italic; }
+        .video-section { background: white; padding: 3rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .video-container { position: relative; width: 100%; max-width: 900px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .video-container video { width: 100%; height: auto; display: block; }
+        .region-section { background: white; }
+        .region-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .region-image { height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .region-image img { width: 100%; height: 100%; object-fit: cover; }
+        .region-text { font-size: 1.1rem; line-height: 1.8; }
+        .region-text h3 { color: #1a4d2e; font-size: 1.8rem; margin-bottom: 1rem; }
+        .region-stats { background: #f0f4f0; padding: 1.5rem; border-radius: 10px; margin-top: 1.5rem; }
+        .region-stats ul { list-style: none; }
+        .region-stats li { padding: 0.5rem 0; border-bottom: 1px solid #d0d0d0; }
+        .region-stats li:last-child { border-bottom: none; }
+        .historia-section { background: #f0f4f0; }
+        .historia-content { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .historia-text { font-size: 1.1rem; line-height: 1.8; }
+        .historia-image { height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .historia-image img { width: 100%; height: 100%; object-fit: cover; }
+        .cafe-section { background: linear-gradient(rgba(26, 77, 46, 0.85), rgba(26, 77, 46, 0.85)), url('imagenes/atardecer.jpeg'); background-size: cover; background-position: center; background-attachment: fixed; color: white; padding: 6rem 2rem; }
+        .cafe-section h2 { color: white; }
+        .cafe-section .subtitle { color: #e0e0e0; }
+        .cafe-header { text-align: center; margin-bottom: 3rem; }
+        .cafe-header img { max-width: 500px; width: 100%; margin-bottom: 2rem; }
+        .cafe-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem; align-items: center; }
+        .cafe-intro-image { height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .cafe-intro-image img { width: 100%; height: 100%; object-fit: cover; }
+        .cafe-intro-text { font-size: 1.1rem; line-height: 1.8; color: white; }
+        .productos-destacados { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .producto-destacado { background: rgba(255,255,255,0.95); padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .producto-destacado-image { width: 100%; height: 350px; border-radius: 10px; overflow: hidden; margin-bottom: 1.5rem; }
+        .producto-destacado-image img { width: 100%; height: 100%; object-fit: contain; background: white; }
+        .producto-info h3 { color: #1a4d2e; font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .producto-info h4 { color: #5a7a5a; font-size: 1.1rem; margin-bottom: 1rem; font-style: italic; }
+        .producto-info p { margin-bottom: 1rem; color: #2c3e2c; }
+        .producto-caracteristicas { list-style: none; margin: 1rem 0; font-size: 0.95rem; color: #2c3e2c; }
+        .producto-caracteristicas li { padding: 0.4rem 0; border-bottom: 1px solid #e0e0e0; }
+        .producto-caracteristicas li:last-child { border-bottom: none; }
+        .cafe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .cafe-card { background: rgba(255,255,255,0.95); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: transform 0.3s; }
+        .cafe-card:hover { transform: translateY(-5px); }
+        .cafe-card-image { width: 100%; height: 200px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+        .cafe-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .cafe-card h3 { color: #1a4d2e; margin-bottom: 1rem; font-size: 1.5rem; }
+        .cafe-card p { color: #2c3e2c; }
+        .preparacion-section { background: #f0f4f0; }
+        .preparacion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .preparacion-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .preparacion-card-image { width: 100%; height: 300px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+        .preparacion-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .preparacion-card h3 { color: #1a4d2e; margin: 1rem 0; }
+        .proceso-section { background: white; }
+        .proceso-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .proceso-card { text-align: center; padding: 2rem; background: #f9f9f9; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .proceso-card-image { width: 100%; height: 220px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+        .proceso-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .proceso-card h3 { color: #1a4d2e; margin: 1rem 0; }
+        .sostenibilidad-section { background: #f0f4f0; }
+        .sostenibilidad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .sostenibilidad-item { text-align: center; padding: 2rem; background: white; border-radius: 10px; }
+        .sostenibilidad-item-image { width: 100%; height: 250px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+        .sostenibilidad-item-image img { width: 100%; height: 100%; object-fit: cover; }
+        .sostenibilidad-item h3 { color: #1a4d2e; margin: 1rem 0; }
+        .productos-section { background: white; }
+        .productos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .producto-card { background: #f9f9f9; padding: 2rem; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: all 0.3s; }
+        .producto-card:hover { transform: scale(1.05); }
+        .producto-card-image { width: 100%; height: 200px; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; }
+        .producto-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .producto-card h3 { color: #1a4d2e; margin-top: 1rem; }
+        .contacto-section { background: #f0f4f0; }
+        .contacto-content { max-width: 600px; margin: 0 auto; }
+        .contacto-info { text-align: center; margin-bottom: 2rem; padding: 2rem; background: white; border-radius: 10px; }
+        .contacto-info h3 { color: #1a4d2e; margin-bottom: 1rem; }
+        .contacto-info p { font-size: 1.1rem; margin: 0.5rem 0; }
+        .contacto-info a { color: #2d5f3d; text-decoration: none; font-weight: bold; }
+        .contacto-info a:hover { color: #1a4d2e; }
+        form { display: flex; flex-direction: column; gap: 1.5rem; background: white; padding: 2rem; border-radius: 10px; }
+        input, textarea { padding: 1rem; border: 2px solid #8fbc8f; border-radius: 5px; font-size: 1rem; font-family: inherit; }
+        textarea { min-height: 150px; resize: vertical; }
+        button[type="submit"] { background-color: #1a4d2e; color: white; padding: 1rem 2rem; border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer; transition: all 0.3s; font-weight: bold; }
+        button[type="submit"]:hover { background-color: #2d5f3d; transform: translateY(-2px); }
+        footer { background-color: #1a4d2e; color: white; text-align: center; padding: 3rem 2rem; }
+        .footer-logo { margin-bottom: 2rem; }
+        .footer-logo img { height: 80px; width: auto; object-fit: contain; }
+        footer p { margin-bottom: 0.5rem; }
+        @media (max-width: 968px) { nav { flex-direction: column; gap: 1rem; padding: 1rem; } .logo-container img { height: 50px; } nav ul { justify-content: center; gap: 1rem; } .hero-content h1 { font-size: 2.5rem; } .hero-content p { font-size: 1.2rem; } .historia-content, .cafe-intro, .region-content { grid-template-columns: 1fr; } .productos-destacados { grid-template-columns: 1fr; } h2 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container"><img src="imagenes/logo-header.jpeg" alt="Café Bosque Esmeralda"></div>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#region">Región</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#cafe">Café</a></li>
+                <li><a href="#preparacion">Preparación</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#sostenibilidad">Sostenibilidad</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Café Bosque Esmeralda</h1>
+            <p>De la Finca San Carlos, donde el café nace del compromiso con la tierra</p>
+            <a href="#contacto" class="cta-button">Conoce Nuestro Café</a>
+        </div>
+    </section>
+
+    <section id="video">
+        <h2>Conoce Nuestra Finca</h2>
+        <p class="subtitle">Un recorrido por la Finca San Carlos</p>
+        <div class="video-section">
+            <div class="video-container">
+                <video controls><source src="imagenes/video-finca.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+    </section>
+
+    <section id="region" class="region-section">
+        <h2>Córdoba, Quindío</h2>
+        <p class="subtitle">Corazón del Eje Cafetero Colombiano</p>
+        <div class="region-content">
+            <div class="region-text">
+                <h3>Nuestra Tierra</h3>
+                <p>La Finca San Carlos está ubicada en Córdoba, un pintoresco municipio en el departamento del Quindío, Colombia.</p>
+                <br>
+                <p>Fundado en 1927, Córdoba es reconocido por su compromiso con la sostenibilidad y el Centro Nacional del Bambú-Guadua.</p>
+                <br>
+                <div class="region-stats">
+                    <ul>
+                        <li><strong>🌡️ Temperatura:</strong> 20°C promedio</li>
+                        <li><strong>⛰️ Altitud:</strong> Ideal para café de especialidad</li>
+                        <li><strong>🎋 Distintivo:</strong> Festival del Bambú y Guadua</li>
+                        <li><strong>☕ Tradición:</strong> Paisaje Cultural Cafetero UNESCO</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="region-image"><img src="imagenes/cafetal.jpeg" alt="Cafetal en Córdoba"></div>
+        </div>
+    </section>
+
+    <section id="historia" class="historia-section">
+        <h2>Nuestra Historia</h2>
+        <p class="subtitle">Un viaje hacia la autosostenibilidad</p>
+        <div class="historia-content">
+            <div class="historia-text">
+                <p>En el corazón del Quindío, la Finca San Carlos representa más que una tradición cafetera. Es el resultado de un sueño: crear un espacio donde la agricultura y la naturaleza conviven en armonía.</p>
+                <br>
+                <p>Hemos emprendido un viaje hacia la autosostenibilidad, respetando cada árbol, cada gota de agua, y cada ciclo natural.</p>
+                <br>
+                <p>El Café Bosque Esmeralda es el fruto de este compromiso.</p>
+            </div>
+            <div class="historia-image"><img src="imagenes/jeeps-camino.jpeg" alt="Camino en la finca"></div>
+        </div>
+    </section>
+
+    <section id="cafe" class="cafe-section">
+        <div class="cafe-header">
+            <img src="imagenes/logo-colorido.jpeg" alt="Logo Bosque Esmeralda">
+            <h2>Café Bosque Esmeralda</h2>
+            <p class="subtitle">Cultivado con pasión, cosechado con respeto</p>
+        </div>
+
+        <div class="cafe-intro">
+            <div class="cafe-intro-image"><img src="imagenes/cerezas-1.jpeg" alt="Cerezas de café"></div>
+            <div class="cafe-intro-text">
+                <p>Nuestro café crece bajo el sistema agroforestal tradicional del Eje Cafetero.</p>
+                <br>
+                <p>Cada cereza es seleccionada a mano en su punto óptimo de maduración.</p>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: white; font-size: 2rem; margin: 3rem 0 2rem;">Nuestras Variedades</h3>
+        
+        <div class="productos-destacados">
+            <div class="producto-destacado">
+                <div class="producto-destacado-image"><img src="imagenes/empaque-honey.jpeg" alt="Castillo Honey"></div>
+                <div class="producto-info">
+                    <h3>Castillo Honey</h3>
+                    <h4>Café Especial de Colombia</h4>
+                    <p>Con notas a chocolate y miel. Proceso honey que conserva la dulzura natural.</p>
+                    <ul class="producto-caracteristicas">
+                        <li><strong>Notas:</strong> Chocolate, miel, panela</li>
+                        <li><strong>Cuerpo:</strong> Medio - Alto</li>
+                        <li><strong>Acidez:</strong> Cítrica</li>
+                        <li><strong>Presentaciones:</strong> 250g / 350g / 500g</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="producto-destacado">
+                <div class="producto-destacado-image"><img src="imagenes/empaque-lavado.jpeg" alt="Castillo Lavado"></div>
+                <div class="producto-info">
+                    <h3>Castillo Lavado</h3>
+                    <h4>Café Especial de Colombia</h4>
+                    <p>Con notas florales y especiadas, dulzura de panela.</p>
+                    <ul class="producto-caracteristicas">
+                        <li><strong>Notas:</strong> Florales, especiadas, panela</li>
+                        <li><strong>Cuerpo:</strong> Sedoso</li>
+                        <li><strong>Acidez:</strong> Media Alta - Cítrica</li>
+                        <li><strong>Presentaciones:</strong> 250g / 350g / 500g</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 2rem 0; color: white;">
+            <p style="font-size: 1.1rem;"><strong>Origen:</strong> Finca San Carlos, Córdoba | <strong>Altitud:</strong> 1,470 m.s.n.m | <strong>Variedad:</strong> Castillo</p>
+        </div>
+
+        <div class="cafe-grid">
+            <div class="cafe-card">
+                <div class="cafe-card-image"><img src="imagenes/flor-cafe.jpeg" alt="Flor de café"></div>
+                <h3>Café de Altura</h3>
+                <p>Cultivado a 1,470 metros sobre el nivel del mar.</p>
+            </div>
+            <div class="cafe-card">
+                <div class="cafe-card-image"><img src="imagenes/catacion-profesional.jpeg" alt="Catación profesional"></div>
+                <h3>Control de Calidad</h3>
+                <p>Catación profesional de cada lote.</p>
+            </div>
+            <div class="cafe-card">
+                <div class="cafe-card-image"><img src="imagenes/taza-cafe.jpeg" alt="Taza de café"></div>
+                <h3>Resultado Perfecto</h3>
+                <p>Una taza de café excepcional.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="preparacion" class="preparacion-section">
+        <h2>Disfruta Tu Café</h2>
+        <p class="subtitle">Métodos de preparación</p>
+        <div class="preparacion-grid">
+            <div class="preparacion-card">
+                <div class="preparacion-card-image"><img src="imagenes/v60.jpeg" alt="Método V60"></div>
+                <h3>Método V60</h3>
+                <p>Resalta notas cítricas y la dulzura natural de nuestros cafés.</p>
+            </div>
+            <div class="preparacion-card">
+                <div class="preparacion-card-image"><img src="imagenes/tradicional.jpeg" alt="Preparación tradicional"></div>
+                <h3>Preparación Tradicional</h3>
+                <p>En cafetera italiana, prensa francesa o filtro de tela.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="proceso" class="proceso-section">
+        <h2>Nuestro Proceso</h2>
+        <p class="subtitle">Del árbol a tu taza, con dedicación artesanal</p>
+        <div class="proceso-grid">
+            <div class="proceso-card">
+                <div class="proceso-card-image"><img src="imagenes/planta-cafe.jpeg" alt="Cultivo de café"></div>
+                <h3>1. Cultivo</h3>
+                <p>Bajo sombra natural en sistema agroforestal.</p>
+            </div>
+            <div class="proceso-card">
+                <div class="proceso-card-image"><img src="imagenes/cerezas-2.jpeg" alt="Cosecha manual"></div>
+                <h3>2. Cosecha</h3>
+                <p>Selección manual de cerezas maduras.</p>
+            </div>
+            <div class="proceso-card">
+                <div class="proceso-card-image"><img src="imagenes/secado-granos.jpeg" alt="Secado natural"></div>
+                <h3>3. Secado</h3>
+                <p>Proceso natural al sol en marquesinas.</p>
+            </div>
+            <div class="proceso-card">
+                <div class="proceso-card-image"><img src="imagenes/tostadora.jpeg" alt="Tostado artesanal"></div>
+                <h3>4. Tostado</h3>
+                <p>Tostado artesanal en lotes pequeños.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sostenibilidad" class="sostenibilidad-section">
+        <h2>Compromiso con la Sostenibilidad</h2>
+        <p class="subtitle">Cuidando el mañana de nuestra tierra</p>
+        <div class="sostenibilidad-grid">
+            <div class="sostenibilidad-item">
+                <div class="sostenibilidad-item-image"><img src="imagenes/vivero.jpeg" alt="Vivero de plántulas"></div>
+                <h3>Reforestación Activa</h3>
+                <p>Vivero con cientos de plántulas de árboles nativos. Restauramos continuamente el bosque.</p>
+            </div>
+            <div class="sostenibilidad-item">
+                <div class="sostenibilidad-item-image"><img src="imagenes/quebrada.jpeg" alt="Quebrada natural"></div>
+                <h3>Conservación del Agua</h3>
+                <p>Protegemos las fuentes hídricas naturales. Nuestras quebradas son el corazón del ecosistema.</p>
+            </div>
+            <div class="sostenibilidad-item">
+                <div class="sostenibilidad-item-image"><img src="imagenes/ave.jpeg" alt="Biodiversidad"></div>
+                <h3>Biodiversidad</h3>
+                <p>Sistema agroforestal que protege el hábitat de aves y fauna local.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="productos-section">
+        <h2>Nuestros Productos</h2>
+        <p class="subtitle">La diversidad de una finca integral</p>
+        <div class="productos-grid">
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-cafe.jpeg" alt="Café"></div>
+                <h3>Café</h3>
+            </div>
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-platano.jpeg" alt="Plátano"></div>
+                <h3>Plátano</h3>
+            </div>
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-mango.jpeg" alt="Mango"></div>
+                <h3>Mango</h3>
+            </div>
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-naranja.jpeg" alt="Naranja"></div>
+                <h3>Naranja</h3>
+            </div>
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-limon.jpeg" alt="Limón"></div>
+                <h3>Limón</h3>
+            </div>
+            <div class="producto-card">
+                <div class="producto-card-image"><img src="imagenes/producto-aguacate.jpeg" alt="Aguacate"></div>
+                <h3>Aguacate</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto-section">
+        <h2>Contáctanos</h2>
+        <p class="subtitle">¿Interesado en nuestro Café Bosque Esmeralda?</p>
+        <div class="contacto-info">
+            <h3>Información de Contacto</h3>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/573133785480" target="_blank">+57 313 378 5480</a></p>
+            <p><strong>Instagram:</strong> <a href="https://instagram.com/cafebosqueesmeralda" target="_blank">@cafebosqueesmeralda</a></p>
+            <p><strong>Ubicación:</strong> Finca San Carlos, Córdoba, Quindío</p>
+        </div>
+        <div class="contacto-content">
+            <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contacto">
+                <input type="hidden" name="bot-field">
+                <input type="text" name="nombre" placeholder="Tu nombre" required>
+                <input type="email" name="email" placeholder="Tu correo electrónico" required>
+                <input type="tel" name="telefono" placeholder="Tu teléfono">
+                <textarea name="mensaje" placeholder="Cuéntanos tu interés en nuestro café" required></textarea>
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo"><img src="imagenes/logo-header.jpeg" alt="Café Bosque Esmeralda"></div>
+        <p><strong>Finca San Carlos - Café Bosque Esmeralda</strong></p>
+        <p>Córdoba, Quindío, Colombia</p>
+        <p>WhatsApp: +57 313 378 5480 | Instagram: @cafebosqueesmeralda</p>
+        <p>Cultivando el futuro, respetando nuestras raíces</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">&copy; 2026 Café Bosque Esmeralda</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
